@@ -6,16 +6,16 @@ function loadPackages(){
     // this will give us better control to manage exernal packages
 
     packages.Promise = require("bluebird");
-    packages.lodash = require("lodash");
-    packages.Bookshelf = require("bookshelf");
-    //packages.SCrypt = require("bcrypt");
-    packages.dateFormat = require("dateformat");
+    packages.Lodash = require("lodash");
+    packages.DateFormat = require("dateformat");
     packages.Winston = require("winston");
     packages.Hold = require("hold");
-    packages.Memcached = require("memcached");
-    packages.Knex = require("knex");
-    packages.Apn = require("apn");
-    
+    packages.Assent = require("assent");
+    packages.Ephemeral = require("ephemeral");
+    packages.Circulate = require("circulate");
+    packages.StoreHouse = require("storehouse");
+    packages.Goof = require("goof")();
+
     global.Packages = packages;
 }
 

@@ -58,7 +58,7 @@ function get(input) {
         "lat": {
             required: {
                 error_message: "lat custom error message"
-            },
+            }
         }
     }, {
         "lon": {
@@ -73,7 +73,7 @@ function get(input) {
                         return false;
                     }
                     return true;
-                },
+                }
             }
         }
     }]);
@@ -102,7 +102,7 @@ describe("Validations", function() {
                 expect(false).to.be.true;
             }).done(null, function(error) {
                 // the expectation threw an error so forward that error to Mocha
-                console.log("validation err: " + error);
+                console.log("validation err: ", error);
                 expect(error).to.be.exist;
             });
 
@@ -112,14 +112,14 @@ describe("Validations", function() {
 
             var params = {
                 "user_id": 1,
-                "user_name": null,
+                "user_name": null
                 //"lat": 90
             };
 
             return get(params).then(function() {
                 expect(false).to.be.true;
             }).done(null, function(error) {
-                console.log("validation err: " + error);
+                console.log("validation err: ", error);
                 expect(error).to.be.exist;
             });
         });
@@ -135,7 +135,7 @@ describe("Validations", function() {
             return get(params).then(function() {
                 expect(false).to.be.true;
             }).done(null, function(error) {
-                console.log("validation err: " + error);
+                console.log("validation err: ", error);
                 expect(error).to.be.exist;
             });
         });
@@ -151,7 +151,7 @@ describe("Validations", function() {
             return get(params).then(function() {
                 expect(false).to.be.true;
             }).done(null, function(error) {
-                console.log("validation err: " + error);
+                console.log("validation err: ", error);
                 expect(error).to.be.exist;
             });
         });
@@ -168,7 +168,7 @@ describe("Validations", function() {
             return get(params).then(function() {
                 expect(false).to.be.true;
             }).done(null, function(error) {
-                console.log("validation err: " + error);
+                console.log("validation err: ", error);
                 expect(error).to.be.exist;
             });
         });
@@ -185,7 +185,7 @@ describe("Validations", function() {
             return get(params).then(function() {
                 expect(false).to.be.true;
             }).done(null, function(error) {
-                console.log("validation err: " + error);
+                console.log("validation err: ", error);
                 expect(error).to.be.exist;
             });
         });
@@ -203,7 +203,7 @@ describe("Validations", function() {
             return get(params).then(function() {
                 expect(false).to.be.true;
             }).done(null, function(error) {
-                console.log("validation err: " + error);
+                console.log("validation err: ", error);
                 expect(error).to.be.exist;
             });
         });
@@ -223,7 +223,7 @@ describe("Validations", function() {
             return get(params).then(function() {
                 expect(true).to.be.true;
             }).done(null, function(error) {
-                console.log("validation err: " + error);
+                console.log("validation err: ", error);
                 expect(false).to.be.true; // to fail test as it should not come in this callback
             });
 
@@ -242,7 +242,7 @@ describe("Validations", function() {
             return get(params).then(function() {
                 expect(true).to.be.true;
             }).done(null, function(error) {
-                console.log("validation err: " + error);
+                console.log("validation err: ", error);
                 expect(false).to.be.true; // to fail test as it should not come in this callback
             });
         });
@@ -261,14 +261,14 @@ describe("Validations", function() {
             return get(params).then(function() {
                 expect(true).to.be.true;
             }).done(null, function(error) {
-                console.log("validation err: " + error);
+                console.log("validation err: ", error);
                 expect(false).to.be.true; // to fail test as it should not come in this callback
             });
         });
 
     });
 
-   
+
 
     afterEach(function() {
 

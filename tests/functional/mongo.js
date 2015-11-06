@@ -4,33 +4,26 @@ var chai = require("chai"),
     Promise = require("bluebird");
 chai.use(chaiAsPromised);
 
-
+require("../../components/index")();
 
 describe("Mongo", function() {
-    global.Packages = {
-        "Promise": require("bluebird")
-    };
-    var mongo = require("../../lib/models/mongo");
     var FunctionalTestModel, mongoBaseModel;
 
-    before(function() {
-        mongoBaseModel = mongo.initialize({
+    before(function(done) {
+        mongoBaseModel = require("../../lib/models").initialize({
             host: "localhost",
             port: "27017",
-            db: "functionaltest"
+            db: "functionaltest",
+            client: "mongo"
         });
         console.log("init");
         FunctionalTestModel = mongoBaseModel.extend({
             tableName: "test"
         });
-    });
-
-    after(function() {
         return new FunctionalTestModel().deleteAll().then(function() {
-            return true;
+            done();
         });
     });
-
 
     it("save", function() {
         return new FunctionalTestModel({
@@ -79,48 +72,39 @@ describe("Mongo", function() {
     
     
     it("pagedFind", function() {
-    
-    
         return new FunctionalTestModel().pagedFind({
             "search_column": "search me"
         }, undefined, 0, 1).then(function(data) {
             expect(data.length).to.equal(1);
     
         });
-    
-    
     });
 
     it("update", function() {
         return new FunctionalTestModel().update({
-            _id: 1
+            _id: 3
         }, {
             name: "ftest2"
         }).then(function() {
-
-
             return new FunctionalTestModel({
-                _id: 1
+                _id: 3
             }).fetch().then(function(output) {
-                expect(output._id).to.equal(1);
+                expect(output._id).to.equal(3);
                 expect(output.name).to.equal("ftest2");
-
             });
         });
     });
 
     it("rawUpdate", function() {
         return new FunctionalTestModel().rawUpdate({
-            _id: 1
+            _id: 4
         }, {
             name: "ftest1"
         }).then(function() {
-
-
             return new FunctionalTestModel({
-                _id: 1
+                _id: 4
             }).fetch().then(function(output) {
-                expect(output._id).to.equal(1);
+                expect(output._id).to.equal(4);
                 expect(output.name).to.equal("ftest1");
 
             });

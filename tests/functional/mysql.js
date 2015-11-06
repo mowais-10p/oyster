@@ -9,19 +9,20 @@ require("../../components/index")();
 describe("MySql", function() {
 
 
-    var mysql = require("../../lib/models/mysql");
     var FunctionalTestModel, mysqlBaseModel;
     var idColumnName = "id",
         nameColumnName = "name";
 
     before(function() {
 
-        mysqlBaseModel = mysql.initialize({
+        mysqlBaseModel = require("../../lib/models").initialize({
             host: "localhost",
             port: "3306",
             db: "testMySqlModel",
-            uid: "dbuser",
-            pwd: "dbuser"
+            uid: "root",
+            pwd: "",
+            client: "mysql",
+            isMultiStatement: true
         });
         console.log("init");
         FunctionalTestModel = mysqlBaseModel.extend({
@@ -97,23 +98,22 @@ describe("MySql", function() {
     
     });
 
-    // it("saveInBatch", function () {
-    //     var objs = [];
-    //     var insert_obj = {};
-    //     insert_obj[idColumnName] = 1;
-    //     insert_obj[nameColumnName] = "ftest1";
+    it("saveInBatch", function () {
+        var objs = [];
+        var insert_obj = {};
+        insert_obj[idColumnName] = 1;
+        insert_obj[nameColumnName] = "ftest1";
 
-    //     objs.push(insert_obj);
-    //     insert_obj = {};
-    //     insert_obj[idColumnName] = 2;
-    //     insert_obj[nameColumnName] = "ftest2";
-    //     objs.push(insert_obj);
+        objs.push(insert_obj);
+        insert_obj = {};
+        insert_obj[idColumnName] = 2;
+        insert_obj[nameColumnName] = "ftest2";
+        objs.push(insert_obj);
 
-    //     return new FunctionalTestModel(objs).saveInBatch().then(function () {
-    //         expect(true).to.equal(true);
-    //     });
-
-    // });
+        return new FunctionalTestModel(objs).saveInBatch().then(function () {
+            expect(true).to.equal(true);
+        });
+    });
 
     it("fetch", function() {
         var where_clause = {};
