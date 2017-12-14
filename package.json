@@ -14,7 +14,7 @@
     "hold": "0.0.10",
     "dateformat": "~1.0.11",
     "assent": "git+https://github.com/mideveloper/assent.git",
-    "storehouse": "git+https://github.com/mideveloper/storehouse.git",
+    "storehouse": "git+https://github.com/mowais-10p/storehouse.git",
     "circulate": "git+https://github.com/mideveloper/circulate.git",
     "ephemeral": "git+https://github.com/mideveloper/ephemeral.git",
     "goof": "git+https://github.com/mideveloper/goof.git"
@@ -38,7 +38,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mideveloper/oyster"
+    "url": "https://github.com/mowais-10p/oyster"
   },
   "keywords": [
     "node",
@@ -57,9 +57,9 @@
   },
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mideveloper/oyster/issues"
+    "url": "https://github.com/mowais-10p/oyster/issues"
   },
-  "homepage": "https://github.com/mideveloper/oyster",
+  "homepage": "https://github.com/mowais-10p/oyster",
   "readme": "oyster\n=====\n\noyster framework\n",
   "readmeFilename": "README.md",
   "_id": "node-oyster@0.0.7",
